@@ -66,7 +66,7 @@ public class Customer {
             return this;
         }
 
-        public Builder setAddress(Adress address){
+        public Builder setAddress(Address address){
             this.address = address;
             return this;
         }
@@ -89,20 +89,21 @@ public class Customer {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Customer customer = (Customer) o;
-        return Objects.equals(customerID, customer.customerID) && Objects.equals(customerName, customer.customerName) && Objects.equals(customerSurname, customer.customerSurname);
+        return Objects.equals(customerID, customer.customerID) && Objects.equals(customerName, customer.customerName) && Objects.equals(customerSurname, customer.customerSurname) && Objects.equals(address, customer.address);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(customerID, customerName, customerSurname);
+        return Objects.hash(customerID, customerName, customerSurname, address);
     }
 
     @Override
     public String toString() {
         return "Customer{" +
-                "CustomerID='" + customerID + '\'' +
+                "customerID='" + customerID + '\'' +
                 ", customerName='" + customerName + '\'' +
                 ", customerSurname='" + customerSurname + '\'' +
+                ", address=" + address +
                 '}';
     }
 }
