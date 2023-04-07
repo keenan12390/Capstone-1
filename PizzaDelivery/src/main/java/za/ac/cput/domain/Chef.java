@@ -7,6 +7,8 @@ public class Chef extends Employee {
     private String nationality;
     private String culinaryExperience;
 
+
+
     public Chef() {
 
     }
