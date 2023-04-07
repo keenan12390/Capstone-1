@@ -1,7 +1,6 @@
 package za.ac.cput.domain;
 
 import java.util.Objects;
-import za.ac.cput.factory.Address;
 
 
 /* Restaurant.java

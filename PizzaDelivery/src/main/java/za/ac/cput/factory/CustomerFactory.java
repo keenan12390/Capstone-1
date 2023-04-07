@@ -12,7 +12,7 @@ import za.ac.cput.util.Helper;
 */
 public class CustomerFactory {
     public static Customer buildCustomer(String customerName, String customerSurname,Address address) {
-        if (Helper.isNullOrEmpty(customerName) || Helper.isNullOrEmpty(String.valueOf(customerSurname))|| Address.isNullOrEmpty(String.valueOf(address))) {
+        if (Helper.isNullOrEmpty(customerName) || Helper.isNullOrEmpty(String.valueOf(customerSurname))|| Helper.isNullOrEmpty(String.valueOf(address))) {
             return null;
         }
 
