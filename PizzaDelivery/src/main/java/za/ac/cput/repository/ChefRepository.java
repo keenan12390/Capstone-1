@@ -6,7 +6,7 @@ import java.util.Set;
 
 /*
  * ChefRepository.java
- * Author: Dawood Kamalie
+ * Author: Dawood Kamalie  (220147760)
  * Date: 8/4/2023
  * */
 
@@ -32,7 +32,7 @@ public class ChefRepository implements IChefRepository{
     public Chef read(String chefId) {
         for (Chef c: chefDB
         ) {
-            if(c.getEmpId().equals(chefId))
+            if(c.getChefId().equals(chefId))
                 return c;
 
 
