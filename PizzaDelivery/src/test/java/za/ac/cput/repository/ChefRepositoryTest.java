@@ -3,44 +3,47 @@ package za.ac.cput.repository;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
+import za.ac.cput.domain.Chef;
 import za.ac.cput.domain.Employee;
+import za.ac.cput.factory.ChefFactory;
 import za.ac.cput.factory.EmployeeFactory;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 /*
- * EmployeeRepositoryTest.java
+ * ChefRepositoryTest.java
  * Author: Dawood Kamalie  (220147760)
  * Date: 8/4/2023
  * */
 
 @TestMethodOrder(MethodOrderer.MethodName.class)
-class EmployeeRepositoryTest {
-    private static EmployeeRepository repository = EmployeeRepository.getRepository();
-    private static Employee employee = EmployeeFactory.createEmployee("001", "Dawood", "Kamalie");
+class ChefRepositoryTest {
+    private static ChefRepository repository = ChefRepository.getRepository();
+    private static Chef chef = ChefFactory.createChef("001", "Dawood", "Kamalie", "01", "French", "French Cuisine, Pastry");
 
     @Test
     void a_create() {
-        Employee created = repository.create(employee);
-        assertEquals(employee.getEmpId() , created.getEmpId());
+        Chef created = repository.create(chef);
+        assertEquals(chef.getChefId() , created.getChefId());
         System.out.println("Created: " + created);
     }
 
     @Test
     void b_read() {
-        Employee read = repository.read(employee.getEmpId());
+        Chef read = repository.read(chef.getChefId());
         assertNotNull(read);
         System.out.println("Read: " + read);
     }
 
     @Test
     void c_update() {
-        Employee updated = new Employee.Builder().copy(employee).setEmpName("Jack").setEmpSurname("Blue").build();
+        Chef updated = new Chef.Builder().copy(chef).setChefName("Jack").setChefSurname("Blue").setNationality("German").build();
         assertNotNull(repository.update(updated));
     }
 
     @Test
     void e_delete() {
-        boolean success = repository.delete(employee.getEmpId());
+        boolean success = repository.delete(chef.getChefId());
         assertTrue(success);
         System.out.println("Deleted: " + success);
     }

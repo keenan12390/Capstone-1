@@ -6,7 +6,7 @@ import java.util.Objects;
 /*
  * Chef.java
  * Chef Entity
- * Author: Dawood Kamalie
+ * Author: Dawood Kamalie  (220147760)
  * Date: 7/4/2023
  * */
 public class Chef extends Employee {
