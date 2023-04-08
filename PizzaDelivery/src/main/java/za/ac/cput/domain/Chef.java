@@ -2,10 +2,20 @@ package za.ac.cput.domain;
 
 import java.util.Objects;
 
+
+/*
+ * Chef.java
+ * Chef Entity
+ * Author: Dawood Kamalie
+ * Date: 7/4/2023
+ * */
 public class Chef extends Employee {
     private String chefId;
     private String nationality;
     private String culinaryExperience;
+    private String empId = super.getEmpId();
+    private  String chefName = super.getEmpName();
+    private String chefSurname = super.getEmpSurname();
 
 
 
@@ -13,13 +23,16 @@ public class Chef extends Employee {
 
     }
 
-    //    public Chef(String empId, String empName, String empSurname, String chefId, String nationality, String culinaryExperience) {
-//        super(empId, empName, empSurname);
-//        this.chefId = chefId;
-//        this.nationality = nationality;
-//        this.culinaryExperience = culinaryExperience;
-//    }
+        public Chef(String empId, String empName, String empSurname, String chefId, String nationality, String culinaryExperience) {
+        super(empId, empName, empSurname);
+        this.chefId = chefId;
+        this.nationality = nationality;
+        this.culinaryExperience = culinaryExperience;
+    }
     private Chef(Builder builder){
+        this.empId = builder.empId;
+        this.chefName = builder.chefName;
+        this.chefSurname = builder.chefSurname;
         this.chefId = builder.chefId;
         this.nationality = builder.nationality;
         this.culinaryExperience = builder.culinaryExperience;
@@ -29,32 +42,40 @@ public class Chef extends Employee {
         return chefId;
     }
 
-//    public void setChefId(String chefId) {
-//        this.chefId = chefId;
-//    }
+    public void setChefId(String chefId) {
+        this.chefId = chefId;
+    }
 
     public String getNationality() {
         return nationality;
     }
 
-//    public void setNationality(String nationality) {
-//        this.nationality = nationality;
-//    }
+    public void setNationality(String nationality) {
+        this.nationality = nationality;
+    }
 
     public String getCulinaryExperience() {
         return culinaryExperience;
     }
 
-//    public void setCulinaryExperience(String culinaryExperience) {
-//        this.culinaryExperience = culinaryExperience;
-//    }
+    public void setCulinaryExperience(String culinaryExperience) {
+        this.culinaryExperience = culinaryExperience;
+    }
+
 
     public static class Builder {
+
         private String chefId;
         private String nationality;
         private String culinaryExperience;
+        private String empId;
+        private  String chefName;
+        private String chefSurname;
 
-        public Builder(String chefId, String nationality, String culinaryExperience) {
+        public Builder(String empId, String chefName, String chefSurname, String chefId, String nationality, String culinaryExperience) {
+            this.empId = empId;
+            this.chefName = chefName;
+            this.chefSurname = chefSurname;
             this.chefId = chefId;
             this.nationality = nationality;
             this.culinaryExperience = culinaryExperience;
@@ -92,7 +113,37 @@ public class Chef extends Employee {
             return this;
         }
 
+        public String getEmpId() {
+            return empId;
+        }
+
+        public Builder setEmpId(String empId) {
+            this.empId = empId;
+            return this;
+        }
+
+        public String getChefName() {
+            return chefName;
+        }
+
+        public Builder setChefName(String chefName) {
+            this.chefName = chefName;
+            return this;
+        }
+
+        public String getChefSurname() {
+            return chefSurname;
+        }
+
+        public Builder setChefSurname(String chefSurname) {
+            this.chefSurname = chefSurname;
+            return this;
+        }
+
         public Builder copy(Chef chef){
+            this.empId = chef.empId;
+            this.chefName = chef.chefName;
+            this.chefSurname = chef.chefSurname;
             this.chefId = chef.chefId;
             this.nationality = chef.nationality;
             this.culinaryExperience = chef.culinaryExperience;
@@ -105,12 +156,12 @@ public class Chef extends Employee {
             if (this == o) return true;
             if (o == null || getClass() != o.getClass()) return false;
             Chef chef = (Chef) o;
-            return chefId == chef.chefId && nationality == chef.nationality &&  culinaryExperience == chef.culinaryExperience;
+            return empId == chef.empId && chefName == chef.chefName && chefSurname == chef.chefSurname && chefId == chef.chefId && nationality == chef.nationality &&  culinaryExperience == chef.culinaryExperience;
         }
 
         @Override
         public int hashCode() {
-            return Objects.hash(chefId, nationality, culinaryExperience);
+            return Objects.hash(empId, chefName, chefSurname, chefId, nationality, culinaryExperience);
         }
 
     }
