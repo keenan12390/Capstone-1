@@ -64,12 +64,7 @@ public class Restaurant {
             return this;
         }
 
-        /*public RestaurantBuilder(String restaurantID, String restaurantName, int noOfEmp,Boolean isOpen) {
-            this.restaurantID = restaurantID;
-            this.restaurantName = restaurantName;
-            this.noOfEmp = noOfEmp;
-            this.isOpen = isOpen;
-        }*/
+        
         public Builder copy(za.ac.cput.domain.Restaurant t) {
             this.restaurantID = t.restaurantID;
             this.restaurantName = t.restaurantName;
